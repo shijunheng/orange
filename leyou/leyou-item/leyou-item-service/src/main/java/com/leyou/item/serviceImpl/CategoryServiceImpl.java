@@ -6,7 +6,9 @@ import com.leyou.item.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -23,5 +25,15 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = new Category();
         category.setParentId(pid);
         return this.categoryMapper.select(category);
+    }
+
+    @Override
+    public List<Category> queryByBrandId(Long bid) {
+        return this.categoryMapper.queryByBrandId(bid);
+    }
+
+    @Override
+    public List<String> queryNamesByIds(List<Long> ids) {
+        return this.categoryMapper.selectByIdList(ids).stream().map(category->category.getName()).collect(Collectors.toList());
     }
 }
