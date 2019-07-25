@@ -42,4 +42,39 @@ public class BrandServiceImpl implements BrandService {
         // 包装成分页结果集返回
         return new PageResult<>(pageInfo.getTotal(), pageInfo.getList());
     }
+
+    @Override
+    public void saveBrand(Brand brand, List<Long> cids) {
+        // 先新增brand
+        this.brandMapper.insertSelective(brand);
+
+        // 在新增中间表
+        cids.forEach(cid -> {
+            this.brandMapper.insertBrandAndCategory(cid, brand.getId());
+        });
+    }
+
+    @Override
+    public int delectByBrandId(Long bid) {
+        this.brandMapper.deleteBrandAndCategory(bid);
+        return this.brandMapper.deleteByPrimaryKey(bid);
+    }
+
+    @Override
+    public void updateBrand(Brand brand, List<Long> cids) {
+        // 先修改brand
+        this.brandMapper.updateByPrimaryKey(brand);
+        // 删除中间表
+        this.brandMapper.deleteBrandAndCategory(brand.getId());
+        // 在新增中间表
+        cids.forEach(cid -> {
+            this.brandMapper.insertBrandAndCategory(cid, brand.getId());
+        });
+    }
+
+    @Override
+    public List<Brand> queryBrandsByCid(Long cid) {
+        return this.brandMapper.selectBrandByCid(cid);
+    }
+
 }
