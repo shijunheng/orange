@@ -12,6 +12,8 @@
     <groupId>com.leyou.upload</groupId>
     <artifactId>leyou-upload</artifactId>
 
+    <version>1.0.0-SNAPSHOT</version>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
