@@ -9,6 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class LeyouUploadApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(LeyouUploadApplication.class,args);
+        SpringApplication.run(LeyouUploadApplication.class, args);
     }
 }
+

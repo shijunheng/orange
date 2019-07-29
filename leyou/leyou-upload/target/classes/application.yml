@@ -20,5 +20,10 @@ fdfs:
   thumb-image: # 缩略图
     width: 60
     height: 60
+<<<<<<< HEAD
   tracker-list:
     - 192.168.0.232:22122
+=======
+  tracker-list: # tracker地址：你的虚拟机服务器地址+端口（默认是22122）
+  - 192.168.0.232:22122
+>>>>>>> 7d0f12a584f606ca1742646e7452819f649b07ae
