@@ -1,8 +1,8 @@
 package com.leyou.item.controller;
 
 import com.leyou.common.pojo.PageResult;
+import com.leyou.item.bo.SpuBo;
 import com.leyou.item.pojo.Sku;
-import com.leyou.item.pojo.SpuBo;
 import com.leyou.item.pojo.SpuDetail;
 import com.leyou.item.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;

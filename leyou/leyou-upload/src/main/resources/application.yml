@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8083
 spring:
   application:
     name: upload-service
@@ -20,5 +20,5 @@ fdfs:
   thumb-image: # 缩略图
     width: 60
     height: 60
-  tracker-list: # tracker地址：你的虚拟机服务器地址+端口（默认是22122）
-  - 192.168.0.232:22122
+  tracker-list:
+    - 192.168.0.232:22122

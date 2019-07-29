@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +36,6 @@ public class UploadServiceImpl implements UploadService {
             LOGGER.info("文件类型不合法：{}", originalFilename);
             return null;
         }
-
         try {
             // 校验文件的内容
             BufferedImage bufferedImage = ImageIO.read(file.getInputStream());
@@ -45,12 +43,9 @@ public class UploadServiceImpl implements UploadService {
                 LOGGER.info("文件内容不合法：{}", originalFilename);
                 return null;
             }
-
             // 保存到服务器
-            // file.transferTo(new File("C:\\leyou\\images\\" + originalFilename));
             String ext = StringUtils.substringAfterLast(originalFilename, ".");
             StorePath storePath = this.storageClient.uploadFile(file.getInputStream(), file.getSize(), ext, null);
-
             // 生成url地址，返回
             return "http://image.leyou.com/" + storePath.getFullPath();
         } catch (IOException e) {
