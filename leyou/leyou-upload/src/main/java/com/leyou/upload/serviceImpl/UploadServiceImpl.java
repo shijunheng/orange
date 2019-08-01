@@ -26,28 +26,30 @@ public class UploadServiceImpl implements UploadService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UploadService.class);
 
-    @Override
     public String upload(MultipartFile file) {
-        String fileName = file.getOriginalFilename();
-        //校验文件类型
-        String type = file.getContentType();
-        if (!CONTENT_TYPES.contains(type)){
-            LOGGER.info("文件类型不和法{}",fileName);
+
+        String originalFilename = file.getOriginalFilename();
+        // 校验文件的类型
+        String contentType = file.getContentType();
+        if (!CONTENT_TYPES.contains(contentType)){
+            // 文件类型不合法，直接返回null
+            LOGGER.info("文件类型不合法：{}", originalFilename);
             return null;
         }
         try {
-            BufferedImage read = ImageIO.read(file.getInputStream());
-            if (read == null){
-                LOGGER.info("文件内容不合法：{}", fileName);
+            // 校验文件的内容
+            BufferedImage bufferedImage = ImageIO.read(file.getInputStream());
+            if (bufferedImage == null){
+                LOGGER.info("文件内容不合法：{}", originalFilename);
                 return null;
             }
             // 保存到服务器
-            String ext = StringUtils.substringAfterLast(fileName, ".");
+            String ext = StringUtils.substringAfterLast(originalFilename, ".");
             StorePath storePath = this.storageClient.uploadFile(file.getInputStream(), file.getSize(), ext, null);
             // 生成url地址，返回
             return "http://image.leyou.com/" + storePath.getFullPath();
         } catch (IOException e) {
-            LOGGER.info("服务器内部错误：{}", fileName);
+            LOGGER.info("服务器内部错误：{}", originalFilename);
             e.printStackTrace();
         }
         return null;
