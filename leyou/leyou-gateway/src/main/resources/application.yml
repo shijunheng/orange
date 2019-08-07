@@ -10,7 +10,13 @@ eureka:
       defaultZone: http://127.0.0.1:10086/eureka
 zuul:
   prefix: /api # 路由路径前缀
+  retryable: true
   routes:
     item-service: /item/** # 商品微服务的映射路径
+    serah-service: /search/**  #搜索微服务
+    user-service: /user/**  #用户微服务
   ignored-services:
   - upload-service # 忽略upload-service服务
+ribbon:
+  connectionTimout: 1000 # 获取连接超时时间
+  readTimout: 1000 #通讯超时时间

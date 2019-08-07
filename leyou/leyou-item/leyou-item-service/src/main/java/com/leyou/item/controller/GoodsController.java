@@ -26,6 +26,7 @@ public class GoodsController {
             @RequestParam(value = "page", defaultValue = "1")Integer page,
             @RequestParam(value = "rows", defaultValue = "5")Integer rows
     ){
+        System.out.println(11111111+"========================");
         PageResult<SpuBo> pageResult = this.goodsService.querySpuBoByPage(key, saleable, page, rows);
         return ResponseEntity.ok(pageResult);
     }
@@ -56,7 +57,7 @@ public class GoodsController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @GetMapping("delect")
+    @GetMapping("delete")
     public ResponseEntity<Void> deleteGoods(@RequestParam("sid")Long spuId){
         this.goodsService.deleteGoods(spuId);
         return ResponseEntity.status(HttpStatus.CREATED).build();

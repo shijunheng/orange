@@ -8,6 +8,9 @@ import com.leyou.item.pojo.*;
 import com.leyou.item.service.CategoryService;
 import com.leyou.item.service.GoodsService;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.ArrayList;
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -24,18 +27,22 @@ import java.util.stream.Collectors;
 @Service
 public class GoodsServiceImpl implements GoodsService {
 
-    @Autowired
+    @Resource
     private SpuMapper spuMapper;
-    @Autowired
+    @Resource
     private CategoryService categoryService;
-    @Autowired
+    @Resource
     private BrandMapper brandMapper;
-    @Autowired
+    @Resource
     private SpuDetailMapper spuDetailMapper;
-    @Autowired
+    @Resource
     private SkuMapper skuMapper;
-    @Autowired
+    @Resource
     private StockMapper stockMapper;
+    @Resource
+    private AmqpTemplate amqpTemplate;
+
+    private final static Logger logger = LoggerFactory.getLogger(GoodsServiceImpl.class);
 
     @Override
     public PageResult<SpuBo> querySpuBoByPage(String key, Boolean saleable, Integer page, Integer rows) {
@@ -83,6 +90,7 @@ public class GoodsServiceImpl implements GoodsService {
         spuDetail.setSpuId(spuBo.getId());
         this.spuDetailMapper.insertSelective(spuDetail);
         saveSkuAndStock(spuBo);
+        sendMessage(spuBo.getId(),"insert");
     }
 
     @Override
@@ -133,6 +141,7 @@ public class GoodsServiceImpl implements GoodsService {
 
         // 更新spu详情
         this.spuDetailMapper.updateByPrimaryKeySelective(spu.getSpuDetail());
+        this.sendMessage(spu.getId(),"update");
     }
 
     @Override
@@ -163,5 +172,14 @@ public class GoodsServiceImpl implements GoodsService {
             stock.setStock(sku.getStock());
             this.stockMapper.insertSelective(stock);
         });
+    }
+
+    private void sendMessage(Long id,String type){
+        //发送消息
+        try{
+            this.amqpTemplate.convertAndSend("item."+type,id);
+        }catch (Exception e){
+            logger.error("{}商品消息发送异常，商品id:{}",type,id,e);
+        }
     }
 }
