@@ -1,0 +1,125 @@
+[33mcommit ef87e1734eaab8c4604b7e5fc3ede650eabd429a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: cdc33b6 f9247f4
+Author: shijunheng <49466186+shijunheng@users.noreply.github.com>
+Date:   Mon Jul 29 16:35:35 2019 +0800
+
+    Merge branch 'master' into master
+
+[33mcommit f9247f45a82bba7495b6ddacfff02ad02930904a[m
+Merge: f6e1a85 7d0f12a
+Author: shijunheng <897612564@qq.com>
+Date:   Mon Jul 29 16:29:21 2019 +0800
+
+    a
+
+[33mcommit f6e1a85ec2c498784a33010ac6a04c409a509aab[m
+Author: shijunheng <897612564@qq.com>
+Date:   Mon Jul 29 16:23:01 2019 +0800
+
+    完善上传
+
+[33mcommit cdc33b6206f5c1a0d6ae6f50131f68de675b7b29[m
+Author: sybcheck <15114541182@163.com>
+Date:   Fri Jul 26 13:39:33 2019 +0800
+
+    add
+
+[33mcommit a5b88fc3a509b574349e7f1c7861030454c03930[m
+Author: sybcheck <15114541182@163.com>
+Date:   Fri Jul 26 13:07:23 2019 +0800
+
+    add
+
+[33mcommit 83472a6f96337865c5fe0d3e1ba8868d10c137c0[m
+Author: sybcheck <39901720+sybcheck@users.noreply.github.com>
+Date:   Fri Jul 26 12:31:19 2019 +0800
+
+    Update README.md
+
+[33mcommit 7d0f12a584f606ca1742646e7452819f649b07ae[m
+Merge: 4b40a18 bb7e7a8
+Author: shijunheng <49466186+shijunheng@users.noreply.github.com>
+Date:   Fri Jul 26 10:53:41 2019 +0800
+
+    Merge pull request #2 from sybcheck/master
+    
+    图片  upload服务
+
+[33mcommit bb7e7a87b6e9c4595245424671082e8825a50926[m
+Author: sybcheck <15114541182@163.com>
+Date:   Fri Jul 26 10:47:13 2019 +0800
+
+    upload图片微服务
+
+[33mcommit 3c742ef2dbed09974c142f459b1e4f7b8a70684f[m
+Merge: c4ff929 4b40a18
+Author: sybcheck <39901720+sybcheck@users.noreply.github.com>
+Date:   Thu Jul 25 10:15:26 2019 +0800
+
+    Merge pull request #1 from shijunheng/master
+    
+    同步更新操作
+
+[33mcommit 4b40a189cea19c78ab304403a2e0760ef61f553f[m
+Author: shijunheng <897612564@qq.com>
+Date:   Thu Jul 25 10:12:36 2019 +0800
+
+    q
+
+[33mcommit cbf9e421b8d98181ed7477b2286cfd8688a6c94e[m
+Merge: f1c5188 fcfa562
+Author: shijunheng <897612564@qq.com>
+Date:   Thu Jul 25 10:08:40 2019 +0800
+
+    解决冲突
+
+[33mcommit f1c518840cf1d40a421de1349a370e256d923ece[m
+Author: shijunheng <897612564@qq.com>
+Date:   Thu Jul 25 09:59:14 2019 +0800
+
+    完善增删改查
+
+[33mcommit fcfa562ca7b4f644662be54460bff2b253520277[m
+Merge: c5d3705 c4ff929
+Author: shijunheng <49466186+shijunheng@users.noreply.github.com>
+Date:   Thu Jul 25 09:30:33 2019 +0800
+
+    Merge pull request #1 from sybcheck/master
+    
+    测试提交文件
+
+[33mcommit c4ff9291ab08d5550ca1d5e7353ba92d3e81fd94[m
+Author: sybcheck <15114541182@163.com>
+Date:   Tue Jul 23 22:07:44 2019 +0800
+
+    add leyou-upload
+
+[33mcommit c48f7dc87c66e1155c8592c7439a0cbf9cd1a6b0[m
+Author: sybcheck <15114541182@163.com>
+Date:   Tue Jul 23 21:52:53 2019 +0800
+
+    add test
+
+[33mcommit adbb50130895e5418e926c0a1ba96a7bbc2cdf37[m
+Author: sybcheck <15114541182@163.com>
+Date:   Tue Jul 23 21:48:01 2019 +0800
+
+    add test
+
+[33mcommit c5d37057fa7d09d2c19c37b08a294058377eed8f[m
+Author: shijunheng <897612564@qq.com>
+Date:   Mon Jul 15 17:21:03 2019 +0800
+
+    添加品牌分页
+
+[33mcommit 9c0c4c66ee9e6f93afdc20c75d7080ec96f2dff8[m
+Author: shijunheng <897612564@qq.com>
+Date:   Mon Jul 15 10:43:44 2019 +0800
+
+    第一次修改
+
+[33mcommit c6c2b93873a3c5b773be8d77493809f8317cd142[m
+Author: shijunheng <49466186+shijunheng@users.noreply.github.com>
+Date:   Mon Jul 15 10:39:49 2019 +0800
+
+    Initial commit

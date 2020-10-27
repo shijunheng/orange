@@ -15,8 +15,12 @@ zuul:
     item-service: /item/** # 商品微服务的映射路径
     serah-service: /search/**  #搜索微服务
     user-service: /user/**  #用户微服务
+    auth-service: auth/** #授权中心微服务
   ignored-services:
   - upload-service # 忽略upload-service服务
+  host:
+    connect-timeout-millis: 15000  #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
 ribbon:
-  connectionTimout: 1000 # 获取连接超时时间
-  readTimout: 1000 #通讯超时时间
+  connectionTimout: 10000 # 获取连接超时时间
+  readTimout: 10000 #通讯超时时间

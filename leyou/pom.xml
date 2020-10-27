@@ -16,6 +16,8 @@
         <module>leyou-search</module>
         <module>leyou-user</module>
         <module>leyou-sms-service</module>
+        <module>leyou-auth</module>
+        <module>leyou-cart</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -81,6 +83,7 @@
                 <artifactId>fastdfs-client</artifactId>
                 <version>${fastDFS.client.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 

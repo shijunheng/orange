@@ -2,9 +2,18 @@ package com.leyou.user.mapper;
 
 
 import com.leyou.user.pojo.User;
-import org.xmlunit.util.Mapper;
+import tk.mybatis.mapper.common.Mapper;
 
-public interface UserMapper extends Mapper<User,Long> {
+import java.util.List;
+
+
+public interface UserMapper extends Mapper<User> {
 
     int selectCount(User record);
+
+    int insertSelective(User user);
+
+    User selectOne(User record);
+
+    List<User> selectAll();
 }
